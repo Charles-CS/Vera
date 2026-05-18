@@ -71,13 +71,13 @@ export default function ResultsOverview({
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-500/10 blur-[100px] pointer-events-none rounded-full" />
           
           <div className="relative z-10 bg-black/40 border border-white/10 backdrop-blur-2xl rounded-[2rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-            <div className="flex justify-between items-start mb-8 gap-6">
-              <div>
+            <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6">
+              <div className="min-w-0 flex-1">
                 <motion.h1 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3"
+                  className="text-4xl md:text-5xl lg:text-5xl font-bold text-white tracking-tight mb-3 break-words"
                 >
                   {commonName}
                 </motion.h1>
@@ -124,7 +124,7 @@ export default function ResultsOverview({
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <span className="text-xl md:text-2xl font-bold text-white tracking-tighter">
-                    {confidence}%
+                    {confidence.toFixed(1)}%
                   </span>
                   <span className="text-[10px] md:text-xs text-neutral-400 font-medium uppercase tracking-widest mt-0.5">
                     Match
