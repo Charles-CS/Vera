@@ -8,10 +8,10 @@ import { Leaf } from 'lucide-react';
 const Navbar = () => {
   return (
     <motion.nav 
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -100, x: "-50%", opacity: 0 }}
+      animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl"
+      className="fixed top-6 left-1/2 z-50 w-[95%] max-w-4xl"
     >
       <div className="flex items-center justify-between px-6 py-3.5 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 shadow-glass glass-shine">
         
