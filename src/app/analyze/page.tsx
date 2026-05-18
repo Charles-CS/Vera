@@ -1,21 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardView from "@/components/DashboardView";
 import ScanningState from "@/components/ScanningState";
 import ResultsOverview from "@/components/ResultsOverview";
 import ResultsDetails from "@/components/ResultsDetails";
 import { motion, AnimatePresence } from "framer-motion";
+import { useImageContext } from "@/context/ImageContext";
 
 type AppState = "IDLE" | "SCANNING" | "RESULTS";
 
 export default function AnalyzePage() {
-  const [appState, setAppState] = useState<AppState>("IDLE");
+  const { sharedImageUrl, setSharedImageUrl } = useImageContext();
+  const [appState, setAppState] = useState<AppState>(sharedImageUrl ? "SCANNING" : "IDLE");
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-
-  // We'll toggle between 'invasive' and 'crop' mock results for demonstration
+  const [imageUrl, setImageUrl] = useState<string | null>(sharedImageUrl);
   const [mockResultType, setMockResultType] = useState<"invasive" | "crop">("invasive");
+
+  // If a shared image comes in (e.g. from the home page), run the scan automatically.
+  useEffect(() => {
+    if (sharedImageUrl && appState === "SCANNING") {
+      setMockResultType(Math.random() > 0.5 ? "invasive" : "crop");
+      const timer = setTimeout(() => {
+        setAppState("RESULTS");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [sharedImageUrl, appState]);
 
   const handleAnalyze = (file: File, url: string) => {
     setImageFile(file);
@@ -35,6 +46,7 @@ export default function AnalyzePage() {
     setAppState("IDLE");
     setImageFile(null);
     setImageUrl(null);
+    setSharedImageUrl(null);
   };
 
   return (
