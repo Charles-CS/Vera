@@ -7,7 +7,7 @@ const features = [
   {
     title: "Instant Species Identification",
     description:
-      "Instantly identify thousands of plant species with unparalleled accuracy using our advanced AI-driven visual recognition system.",
+      "Instantly identify thousands of plants species with unparalleled accuracy using our advanced AI-driven visual recognition system.",
     icon: ScanSearch,
   },
   {
