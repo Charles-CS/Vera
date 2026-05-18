@@ -4,7 +4,11 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud, Image as ImageIcon, X } from "lucide-react";
 
-export default function DashboardView() {
+interface DashboardViewProps {
+  onAnalyze?: (file: File, previewUrl: string) => void;
+}
+
+export default function DashboardView({ onAnalyze }: DashboardViewProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -176,7 +180,14 @@ export default function DashboardView() {
                       </p>
                     </div>
                   </div>
-                  <button className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                  <button 
+                    onClick={() => {
+                      if (onAnalyze && selectedFile && previewUrl) {
+                        onAnalyze(selectedFile, previewUrl);
+                      }
+                    }}
+                    className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 whitespace-nowrap"
+                  >
                     Analyze Plant
                   </button>
                 </div>
