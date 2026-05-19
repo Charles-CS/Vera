@@ -6,9 +6,10 @@ import { UploadCloud, Image as ImageIcon, X } from "lucide-react";
 
 interface DashboardViewProps {
   onAnalyze?: (file: File, previewUrl: string) => void;
+  hideHeader?: boolean;
 }
 
-export default function DashboardView({ onAnalyze }: DashboardViewProps) {
+export default function DashboardView({ onAnalyze, hideHeader = false }: DashboardViewProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -58,24 +59,26 @@ export default function DashboardView({ onAnalyze }: DashboardViewProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 pt-12 md:pt-24">
-      <div className="text-center mb-10">
-        <motion.h2 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500 mb-4"
-        >
-          Analyze Your Plant
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-neutral-400 text-lg"
-        >
-          Upload an image to identify species, detect diseases, and assess health.
-        </motion.p>
-      </div>
+    <div className={`w-full max-w-4xl mx-auto p-6 ${hideHeader ? 'pt-6' : 'pt-12 md:pt-24'}`}>
+      {!hideHeader && (
+        <div className="text-center mb-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500 mb-4"
+          >
+            Analyze Your Plant
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-neutral-400 text-lg"
+          >
+            Upload an image to identify species, detect diseases, and assess health.
+          </motion.p>
+        </div>
+      )}
 
       <motion.div
         className={`relative w-full rounded-3xl overflow-hidden border-2 border-dashed transition-all duration-300 ease-in-out ${

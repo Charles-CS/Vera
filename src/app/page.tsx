@@ -21,22 +21,24 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full min-h-[80vh] flex flex-col items-center justify-center pt-20 pb-10 text-center relative">
+      <section className="w-full h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 relative pt-20">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
         
-        <div className="relative z-10 space-y-6 mb-12 mt-12">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
-            Powered by <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Nature & Intelligence</span>
+        {/* Left Side: Title and Text */}
+        <div className="relative z-10 w-full lg:w-1/2 space-y-8 text-center lg:text-left mb-8 lg:mb-0">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            Powered by <br className="hidden lg:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Nature & Intelligence</span>
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto lg:mx-0 font-light">
             Discover the most advanced toolkit for botanical analysis and ecological preservation.
           </p>
         </div>
 
-        {/* Dashboard Upload Component embedded in Hero */}
-        <div className="w-full relative z-10">
-          <DashboardView onAnalyze={handleHeroAnalyze} />
+        {/* Right Side: Dashboard Upload Component embedded in Hero */}
+        <div className="w-full lg:w-1/2 relative z-10 flex justify-center lg:justify-end scale-90 lg:scale-100 origin-center lg:origin-right">
+          <DashboardView onAnalyze={handleHeroAnalyze} hideHeader={true} />
         </div>
       </section>
 
