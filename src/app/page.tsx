@@ -67,7 +67,7 @@ export default function Home() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative z-10 text-base md:text-xl text-neutral-400 max-w-2xl text-center font-light leading-relaxed mb-10"
         >
-          Snap a photo of any plant, tree, flower, or mushroom and get an instant AI identification with care tips, toxicity warnings, and fun facts.
+          Capture any botanical specimen for immediate, high-precision analysis. Unlock instant species identification, comprehensive cultivation protocols, and critical toxicity data.
         </motion.p>
 
         <motion.div 
