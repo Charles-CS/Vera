@@ -1,132 +1,109 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Upload, Cpu, AlertTriangle } from "lucide-react";
+import { ScanLine, Cpu, Sparkles } from "lucide-react";
 
 const steps = [
   {
-    title: "Upload Image",
+    title: "Capture Subject",
     description:
-      "Simply snap a photo or upload an image of any plant, leaf, or bark. Our system instantly prepares it for high-fidelity analysis.",
-    icon: Upload,
+      "Upload a high-resolution image of your specimen. Our edge-optimized interface pre-processes the visual data instantly.",
+    icon: ScanLine,
   },
   {
-    title: "AI Multi-Engine Analysis",
+    title: "Neural Analysis",
     description:
-      "The image is processed through our proprietary neural networks, cross-referencing thousands of botanical and ecological databases in milliseconds.",
+      "Data is routed through our proprietary AI models, cross-referencing global botanical datasets in milliseconds.",
     icon: Cpu,
   },
   {
-    title: "Biome Threat Assessment",
+    title: "Insight Generation",
     description:
-      "Receive a comprehensive report on species identification, health metrics, and potential invasive threats to the surrounding ecosystem.",
-    icon: AlertTriangle,
+      "Receive actionable intelligence including precise species identification, health metrics, and ecological impact.",
+    icon: Sparkles,
   },
 ];
 
 export default function HowItWorks() {
   return (
     <section className="relative w-full py-24 md:py-32 bg-transparent overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-24">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl font-light tracking-tight text-white mb-6"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
           >
-            How{" "}
-            <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-vera-emerald to-emerald-200">
-              Vera
-            </span>{" "}
-            Works
+            The Intelligence <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Pipeline</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/60 text-lg md:text-xl font-light"
+            className="text-neutral-400 text-lg md:text-xl font-light"
           >
-            A seamless intelligence workflow designed for precision, speed, and actionable insights.
+            A seamless, state-of-the-art workflow designed for precision, speed, and actionable ecological insights.
           </motion.p>
         </div>
 
         <div className="relative">
-          {/* Vertical connecting line container */}
-          <div className="absolute left-10 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 -translate-x-1/2 rounded-full overflow-hidden">
-            {/* Animated glowing line */}
+          {/* Animated Data Stream (Desktop Only) */}
+          <div className="hidden md:block absolute top-[4.5rem] left-[10%] right-[10%] h-[2px] bg-white/5 z-0">
             <motion.div
-              className="w-full h-full bg-gradient-to-b from-vera-emerald via-emerald-400 to-vera-emerald origin-top"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true, margin: "-20%" }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-transparent via-emerald-400 to-transparent"
+              animate={{ left: ["-50%", "150%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              style={{ width: "30%" }}
             />
           </div>
 
-          <div className="space-y-16 md:space-y-32">
-            {steps.map((step, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <div
-                  key={index}
-                  className="relative flex flex-col md:flex-row items-center justify-between group"
-                >
-                  {/* Left/Right Content Block */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -50 : 50, y: 20 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className={`w-full md:w-[45%] pl-24 md:pl-0 ${
-                      isEven ? "md:text-right md:pr-16" : "md:order-2 md:pl-16"
-                    }`}
-                  >
-                    <div className="p-8 rounded-3xl backdrop-blur-xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.04] transition-all duration-500 hover:shadow-glow-emerald hover:-translate-y-1 relative overflow-hidden">
-                      {/* Subtle gradient hover effect inside the card */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-vera-emerald/0 to-transparent opacity-0 group-hover:from-vera-emerald/[0.05] group-hover:opacity-100 transition-opacity duration-500" />
-                      
-                      <div className="relative z-10">
-                        <div
-                          className={`inline-block mb-4 text-vera-emerald/80 font-mono text-sm tracking-wider ${
-                            isEven ? "md:mr-0" : ""
-                          }`}
-                        >
-                          STEP 0{index + 1}
-                        </div>
-                        <h3 className="text-2xl font-medium text-white mb-4 tracking-tight group-hover:text-vera-emerald transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                        <p className="text-white/50 leading-relaxed font-light text-lg">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: index * 0.2, ease: "easeOut" }}
+                className="relative group"
+              >
+                {/* Node Card */}
+                <div className="relative h-full p-8 md:p-10 rounded-[2.5rem] bg-neutral-950/60 backdrop-blur-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden shadow-2xl">
+                  {/* Subtle hover gradient inside */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-cyan-500/0 group-hover:from-emerald-500/10 group-hover:to-cyan-500/5 transition-colors duration-500 pointer-events-none" />
 
-                  {/* Center Node Badge */}
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
-                    className="absolute left-10 md:left-1/2 w-16 h-16 -translate-x-1/2 rounded-full backdrop-blur-md bg-vera-black border border-white/10 flex items-center justify-center z-10 group-hover:border-vera-emerald/50 group-hover:shadow-glow-emerald transition-all duration-500"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-white/[0.02] flex items-center justify-center group-hover:bg-vera-emerald/20 transition-colors duration-500">
-                      <step.icon
-                        className="w-6 h-6 text-white/50 group-hover:text-vera-emerald transition-colors duration-500 drop-shadow-[0_0_10px_rgba(16,185,129,0)] group-hover:drop-shadow-[0_0_12px_rgba(16,185,129,1)]"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                  </motion.div>
+                  {/* Step Number Watermark */}
+                  <div className="absolute -top-6 -right-4 text-9xl font-bold text-white/[0.02] group-hover:text-white/[0.05] transition-colors duration-500 select-none pointer-events-none">
+                    {index + 1}
+                  </div>
 
-                  {/* Empty spacer for the other side of the zig-zag on desktop */}
-                  <div className={`hidden md:block w-[45%] ${isEven ? "md:order-2" : ""}`} />
+                  {/* Icon Container */}
+                  <div className="relative w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-inner overflow-hidden">
+                    <div className="absolute inset-0 bg-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+                    <step.icon className="w-7 h-7 text-emerald-400 relative z-10" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">Phase 0{index + 1}</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold text-white mb-4 tracking-wide group-hover:text-emerald-300 transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-neutral-400 leading-relaxed font-light">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-              );
-            })}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
