@@ -1,6 +1,7 @@
 "use client";
 
 import Features from "@/components/Features";
+import InfoSections from "@/components/InfoSections";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -138,6 +139,8 @@ export default function Home() {
           — 100% free, no signup, no limits —
         </motion.p>
       </section>
+
+      <InfoSections />
 
       <Features />
 
