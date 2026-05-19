@@ -102,7 +102,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
           className="hidden"
         />
 
-        <div className="p-10 md:p-16 flex flex-col items-center justify-center min-h-[450px] text-center cursor-pointer relative z-10">
+        <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[350px] text-center cursor-pointer relative z-10">
           <AnimatePresence mode="wait">
             {!previewUrl ? (
               <motion.div
