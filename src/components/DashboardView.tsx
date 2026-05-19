@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { UploadCloud, Image as ImageIcon, X } from "lucide-react";
+import { UploadCloud, Image as ImageIcon, X, Sparkles, Leaf } from "lucide-react";
 
 interface DashboardViewProps {
   onAnalyze?: (file: File, previewUrl: string) => void;
@@ -81,11 +81,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
       )}
 
       <motion.div
-        className={`relative w-full rounded-3xl overflow-hidden border-2 border-dashed transition-all duration-300 ease-in-out ${
-          isDragging
-            ? "border-emerald-500 bg-emerald-500/10 shadow-[0_0_40px_rgba(16,185,129,0.3)]"
-            : "border-white/10 bg-black/40 hover:border-emerald-500/50 hover:bg-black/60 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)]"
-        } backdrop-blur-xl`}
+        className="relative w-full group"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -94,109 +90,183 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
         onDrop={handleDrop}
         onClick={() => !selectedFile && fileInputRef.current?.click()}
       >
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleInputChange}
-          accept="image/*"
-          className="hidden"
-        />
+        {/* Animated gradient border effect */}
+        <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-b transition-all duration-500 ${
+          isDragging 
+            ? "from-emerald-400 via-cyan-500 to-emerald-400 opacity-100 blur-md" 
+            : "from-white/20 to-white/5 opacity-50 group-hover:opacity-100 group-hover:from-emerald-500/50 group-hover:to-cyan-500/50 blur-sm"
+        }`} />
+        
+        {/* Main Card */}
+        <div className={`relative w-full rounded-[2.5rem] overflow-hidden transition-all duration-500 backdrop-blur-2xl ${
+          isDragging
+            ? "bg-black/60 shadow-[0_0_80px_rgba(16,185,129,0.3)]"
+            : "bg-black/40 hover:bg-black/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+        }`}>
+          
+          {/* Ambient Glows inside card */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-emerald-500/10 blur-[100px] pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50" />
+          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-cyan-500/10 blur-[100px] pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-50" />
 
-        <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[350px] text-center cursor-pointer relative z-10">
-          <AnimatePresence mode="wait">
-            {!previewUrl ? (
-              <motion.div
-                key="upload-prompt"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col items-center pointer-events-none"
-              >
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleInputChange}
+            accept="image/*"
+            className="hidden"
+          />
+
+          <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[400px] text-center cursor-pointer relative z-10">
+            <AnimatePresence mode="wait">
+              {!previewUrl ? (
                 <motion.div
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="mb-8 p-6 rounded-full bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-white/5 relative group"
+                  key="upload-prompt"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col items-center pointer-events-none w-full"
                 >
-                  <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <UploadCloud className="w-14 h-14 text-emerald-400 relative z-10" />
-                </motion.div>
-                <h3 className="text-2xl font-semibold text-white mb-3">
-                  Drag & Drop Image Here
-                </h3>
-                <p className="text-neutral-400 mb-8 max-w-sm leading-relaxed">
-                  Support for JPG, PNG, and WebP up to 10MB. High resolution images yield better analysis results.
-                </p>
-                <button
-                  type="button"
-                  className="pointer-events-auto px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-emerald-50 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    fileInputRef.current?.click();
-                  }}
-                >
-                  Browse Files
-                </button>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="image-preview"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="w-full max-w-2xl flex flex-col items-center cursor-default"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-black">
-                  <img
-                    src={previewUrl}
-                    alt="Preview"
-                    className="w-full h-full object-contain"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <button
-                      onClick={clearFile}
-                      className="p-4 bg-red-500/90 hover:bg-red-500 text-white rounded-full transition-all duration-300 mb-3 hover:scale-110 hover:shadow-[0_0_20px_rgba(239,68,68,0.5)]"
+                  {/* Floating Icon Area */}
+                  <div className="relative mb-10 mt-4">
+                    {/* Glowing background behind icon */}
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-40 group-hover:opacity-70 transition-opacity duration-500"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.4, 0.6, 0.4]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    
+                    <motion.div
+                      animate={{
+                        y: [0, -12, 0],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl flex items-center justify-center"
                     >
-                      <X className="w-6 h-6" />
-                    </button>
-                    <p className="text-white font-medium text-sm tracking-wide">Remove Image</p>
+                      {/* Decorative micro-icons */}
+                      <motion.div 
+                        className="absolute -top-3 -right-3 p-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 shadow-lg"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      >
+                         <Sparkles className="w-4 h-4 text-emerald-400" />
+                      </motion.div>
+                      <motion.div 
+                        className="absolute -bottom-3 -left-3 p-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 shadow-lg"
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                      >
+                         <Leaf className="w-4 h-4 text-cyan-400" />
+                      </motion.div>
+
+                      <UploadCloud className="w-12 h-12 text-white" strokeWidth={1.5} />
+                    </motion.div>
                   </div>
-                </div>
-                
-                <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 bg-white/5 px-6 py-4 rounded-2xl border border-white/10 w-full backdrop-blur-md">
-                  <div className="flex items-center gap-4 flex-1 w-full sm:w-auto">
-                    <div className="p-3 bg-emerald-500/20 rounded-xl">
-                      <ImageIcon className="w-6 h-6 text-emerald-400" />
-                    </div>
-                    <div className="text-left overflow-hidden flex-1">
-                      <p className="text-white font-medium truncate">{selectedFile?.name}</p>
-                      <p className="text-neutral-400 text-sm">
-                        {(selectedFile!.size / (1024 * 1024)).toFixed(2)} MB
-                      </p>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => {
-                      if (onAnalyze && selectedFile && previewUrl) {
-                        onAnalyze(selectedFile, previewUrl);
-                      }
+
+                  <h3 className="text-3xl font-light text-white mb-4 tracking-wide">
+                    Feed the <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Engine</span>
+                  </h3>
+                  <p className="text-neutral-400 mb-10 max-w-sm leading-relaxed text-sm md:text-base font-light">
+                    Drag & drop a botanical specimen here, or browse your files. High resolution yields optimal analysis.
+                  </p>
+                  
+                  <button
+                    type="button"
+                    className="pointer-events-auto relative group/btn overflow-hidden rounded-full p-[1px] transition-transform duration-300 hover:scale-105 active:scale-95"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      fileInputRef.current?.click();
                     }}
-                    className="w-full sm:w-auto px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 whitespace-nowrap"
                   >
-                    Analyze Plant
+                    <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-full opacity-70 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                    <div className="relative px-8 py-3.5 bg-black/80 backdrop-blur-md rounded-full transition-all duration-300 group-hover/btn:bg-black/50 flex items-center gap-2">
+                      <span className="text-white font-medium tracking-wide text-sm uppercase">Select Image</span>
+                    </div>
                   </button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="image-preview"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="w-full max-w-2xl flex flex-col items-center cursor-default z-20"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-neutral-900">
+                    <img
+                      src={previewUrl}
+                      alt="Preview"
+                      className="w-full h-full object-contain"
+                    />
+                    
+                    {/* Simulated scanning laser line */}
+                    <motion.div 
+                      className="absolute left-0 right-0 h-[2px] bg-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.8)] z-10 pointer-events-none opacity-50"
+                      animate={{ top: ['0%', '100%', '0%'] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent pointer-events-none opacity-50 mix-blend-overlay" />
+
+                    {/* Hover overlay to remove */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-md z-20">
+                      <button
+                        onClick={clearFile}
+                        className="p-4 bg-white/10 hover:bg-red-500 text-white rounded-full transition-all duration-300 mb-3 hover:scale-110 hover:shadow-[0_0_20px_rgba(239,68,68,0.5)] border border-white/20"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+                      <p className="text-white font-medium text-sm tracking-wide">Remove Image</p>
+                    </div>
+                  </div>
+                  
+                  {/* Info and action button bar */}
+                  <div className="mt-6 flex flex-col sm:flex-row items-center gap-4 bg-white/5 px-6 py-4 rounded-2xl border border-white/10 w-full backdrop-blur-xl shadow-xl relative overflow-hidden">
+                    {/* Subtle glow behind the bar */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 opacity-50 pointer-events-none" />
+                    
+                    <div className="flex items-center gap-4 flex-1 w-full sm:w-auto relative z-10">
+                      <div className="p-3 bg-white/10 border border-white/10 rounded-xl shadow-inner">
+                        <ImageIcon className="w-6 h-6 text-emerald-300" />
+                      </div>
+                      <div className="text-left overflow-hidden flex-1">
+                        <p className="text-white font-medium truncate text-sm md:text-base">{selectedFile?.name}</p>
+                        <p className="text-neutral-400 text-xs md:text-sm">
+                          {(selectedFile!.size / (1024 * 1024)).toFixed(2)} MB • Ready for analysis
+                        </p>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        if (onAnalyze && selectedFile && previewUrl) {
+                          onAnalyze(selectedFile, previewUrl);
+                        }
+                      }}
+                      className="w-full sm:w-auto relative group/analyze overflow-hidden rounded-full p-[1px] transition-transform duration-300 hover:scale-105 active:scale-95 z-10"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-500 to-emerald-400 rounded-full opacity-100" />
+                      <div className="relative px-8 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-300 group-hover/analyze:opacity-90 flex items-center justify-center gap-2">
+                        <span className="text-white font-semibold tracking-wide shadow-sm">Analyze Plant</span>
+                        <Sparkles className="w-4 h-4 text-white" />
+                      </div>
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </motion.div>
     </div>
