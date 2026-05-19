@@ -3,22 +3,11 @@
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
-import DashboardView from "@/components/DashboardView";
-import { useImageContext } from "@/context/ImageContext";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { Leaf, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  const { setSharedImageUrl } = useImageContext();
-  const router = useRouter();
-
-  const handleHeroAnalyze = (file: File, url: string) => {
-    // Store the URL globally
-    setSharedImageUrl(url);
-    // Navigate to /analyze
-    router.push("/analyze");
-  };
-
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
@@ -62,7 +51,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex items-center gap-6 text-sm text-neutral-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 backdrop-blur-sm"
+            className="flex items-center gap-6 text-sm text-neutral-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 backdrop-blur-sm mb-10"
           >
             <div className="flex items-center gap-2">
               <div className="relative flex h-2 w-2">
@@ -74,11 +63,104 @@ export default function Home() {
             <div className="w-px h-4 bg-white/20" />
             <div className="tracking-wide">99.9% Accuracy</div>
           </motion.div>
+
+          {/* Hero CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+          >
+            <Link 
+              href="/analyze"
+              className="relative group/btn inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full transition-transform duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-emerald-500/20"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-500 to-emerald-400 opacity-90 group-hover/btn:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]" />
+              <div className="absolute inset-[2px] bg-neutral-950 rounded-full transition-colors duration-300 group-hover/btn:bg-neutral-900/80" />
+              <span className="relative z-10 flex items-center gap-3 text-white font-semibold tracking-wide text-lg">
+                Enter Interface <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
 
-        {/* Right Side: Dashboard Upload Component embedded in Hero */}
-        <div className="w-full lg:w-[45%] relative z-10 flex justify-center">
-          <DashboardView onAnalyze={handleHeroAnalyze} hideHeader={true} />
+        {/* Right Side: Holographic Visual */}
+        <div className="w-full lg:w-[45%] relative z-10 flex justify-center items-center min-h-[500px]">
+          <motion.div
+            animate={{
+              y: [-15, 15, -15],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="relative w-full max-w-sm aspect-[3/4] rounded-[3rem] bg-gradient-to-b from-white/10 to-transparent border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col items-center justify-center overflow-visible group"
+          >
+            {/* Inner holographic glow */}
+            <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-t from-emerald-500/20 to-transparent opacity-50" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-cyan-400/20 blur-[80px] rounded-full mix-blend-screen" />
+            
+            {/* Animated Laser Scanning Line */}
+            <motion.div 
+              className="absolute left-0 right-0 h-[2px] bg-emerald-400 shadow-[0_0_20px_rgba(16,185,129,1)] z-20 opacity-80"
+              animate={{ top: ['10%', '90%', '10%'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+            />
+
+            {/* Central Icon */}
+            <motion.div 
+              animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 p-10 rounded-full bg-black/50 border border-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(16,185,129,0.2)]"
+            >
+              <Leaf className="w-20 h-20 text-emerald-400" strokeWidth={1} />
+            </motion.div>
+
+            {/* Mock Data Overlay */}
+            <div className="absolute bottom-10 left-8 right-8 z-10 bg-black/60 backdrop-blur-xl rounded-2xl p-5 border border-white/10">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs text-neutral-400 font-medium tracking-widest uppercase">System Scan</span>
+                <span className="text-xs text-emerald-400 font-bold tracking-wider">ACTIVE</span>
+              </div>
+              <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                <motion.div 
+                  className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+                  animate={{ width: ["0%", "100%", "0%"] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+            </div>
+            
+            {/* Floating Widget 1 */}
+            <motion.div
+              animate={{ y: [-10, 10, -10], x: [-5, 5, -5] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -left-12 top-24 bg-black/70 backdrop-blur-2xl px-5 py-3 rounded-2xl border border-white/10 flex items-center gap-4 shadow-[0_0_30px_rgba(0,0,0,0.5)] z-30"
+            >
+              <div className="p-2.5 rounded-full bg-emerald-500/20 border border-emerald-500/30">
+                <Sparkles className="w-4 h-4 text-emerald-400" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] text-neutral-400 uppercase tracking-widest">Health</span>
+                <span className="text-sm font-bold text-white tracking-wide">Optimal</span>
+              </div>
+            </motion.div>
+
+            {/* Floating Widget 2 */}
+            <motion.div
+              animate={{ y: [10, -10, 10], x: [5, -5, 5] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              className="absolute -right-16 bottom-40 bg-black/70 backdrop-blur-2xl px-5 py-3 rounded-2xl border border-white/10 flex items-center gap-4 shadow-[0_0_30px_rgba(0,0,0,0.5)] z-30"
+            >
+              <div className="p-2.5 rounded-full bg-cyan-500/20 border border-cyan-500/30">
+                <Leaf className="w-4 h-4 text-cyan-400" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] text-neutral-400 uppercase tracking-widest">Target</span>
+                <span className="text-sm font-bold text-white tracking-wide">Identified</span>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
