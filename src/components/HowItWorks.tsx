@@ -26,12 +26,12 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative w-full py-32 md:py-48 bg-transparent overflow-hidden">
+    <section className="relative w-full py-20 md:py-28 bg-transparent overflow-hidden">
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-24 md:mb-32">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
