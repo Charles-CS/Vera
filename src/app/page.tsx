@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col lg:flex-row items-stretch justify-between max-w-7xl mx-auto px-6 lg:px-8 relative pt-10 pb-8 lg:pt-12 lg:pb-10 min-h-[400px]">
+      <section className="w-full flex flex-col lg:flex-row items-stretch justify-between max-w-7xl mx-auto px-6 lg:px-8 relative pt-10 pb-8 lg:pt-[48px] lg:pb-10 min-h-[400px]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
 
