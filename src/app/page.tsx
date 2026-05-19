@@ -4,19 +4,18 @@ import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Leaf, Sparkles, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Leaf, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 lg:px-8 relative pt-8 pb-8 lg:pt-10 lg:pb-10">
+      <section className="w-full flex flex-col lg:flex-row items-stretch justify-between max-w-7xl mx-auto px-6 lg:px-8 relative pt-10 pb-8 lg:pt-12 lg:pb-10 min-h-[400px]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
-        
+
         {/* Left Side: Title and Text */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -24,7 +23,7 @@ export default function Home() {
         >
 
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
@@ -37,7 +36,7 @@ export default function Home() {
             </span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
@@ -45,13 +44,13 @@ export default function Home() {
           >
             Discover the world's most advanced toolkit for <strong className="text-white font-medium">botanical analysis</strong> and ecological preservation, built for the modern era.
           </motion.p>
-          
+
           {/* System Status Indicators */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex items-center gap-6 text-sm text-neutral-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 backdrop-blur-sm mb-10"
+            className="flex items-center gap-6 text-sm text-neutral-500 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 backdrop-blur-sm"
           >
             <div className="flex items-center gap-2">
               <div className="relative flex h-2 w-2">
@@ -63,52 +62,34 @@ export default function Home() {
             <div className="w-px h-4 bg-white/20" />
             <div className="tracking-wide">99.9% Accuracy</div>
           </motion.div>
-
-          {/* Hero CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-          >
-            <Link 
-              href="/analyze"
-              className="relative group/btn inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full transition-transform duration-300 hover:scale-105 active:scale-95 shadow-2xl shadow-emerald-500/20"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-500 to-emerald-400 opacity-90 group-hover/btn:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]" />
-              <div className="absolute inset-[2px] bg-neutral-950 rounded-full transition-colors duration-300 group-hover/btn:bg-neutral-900/80" />
-              <span className="relative z-10 flex items-center gap-3 text-white font-semibold tracking-wide text-lg">
-                Enter Interface <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          </motion.div>
         </motion.div>
 
         {/* Right Side: Holographic Visual */}
-        <div className="w-full lg:w-[45%] relative z-10 flex justify-center items-center min-h-[500px]">
+        <div className="w-full lg:w-[45%] relative z-10 flex justify-center items-stretch py-4 lg:py-0">
           <motion.div
             animate={{
-              y: [-15, 15, -15],
+              y: [-10, 10, -10],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="relative w-full max-w-sm aspect-[3/4] rounded-[3rem] bg-gradient-to-b from-white/10 to-transparent border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col items-center justify-center overflow-visible group"
+            className="relative w-full max-w-md h-full rounded-[3rem] bg-gradient-to-b from-white/10 to-transparent border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col items-center justify-center overflow-visible group min-h-[400px] lg:min-h-0"
           >
             {/* Inner holographic glow */}
-            <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-t from-emerald-500/20 to-transparent opacity-50" />
+            <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-t from-emerald-500/20 to-transparent opacity-50 pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-cyan-400/20 blur-[80px] rounded-full mix-blend-screen" />
-            
+
             {/* Animated Laser Scanning Line */}
-            <motion.div 
+            <motion.div
               className="absolute left-0 right-0 h-[2px] bg-emerald-400 shadow-[0_0_20px_rgba(16,185,129,1)] z-20 opacity-80"
               animate={{ top: ['10%', '90%', '10%'] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
             />
 
             {/* Central Icon */}
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               className="relative z-10 p-10 rounded-full bg-black/50 border border-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(16,185,129,0.2)]"
@@ -123,14 +104,14 @@ export default function Home() {
                 <span className="text-xs text-emerald-400 font-bold tracking-wider">ACTIVE</span>
               </div>
               <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
-                <motion.div 
+                <motion.div
                   className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400"
                   animate={{ width: ["0%", "100%", "0%"] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
             </div>
-            
+
             {/* Floating Widget 1 */}
             <motion.div
               animate={{ y: [-10, 10, -10], x: [-5, 5, -5] }}
@@ -165,9 +146,9 @@ export default function Home() {
       </section>
 
       <Features />
-      
+
       <HowItWorks />
-      
+
       <Footer />
     </div>
   );
