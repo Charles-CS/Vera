@@ -38,51 +38,54 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Links */}
-        <ul className="hidden md:flex items-center gap-1 bg-black/40 p-1 rounded-full border border-white/5 shadow-inner">
-          {links.map((item) => {
-            const isActive = pathname === item.path || (item.path !== '/' && pathname?.startsWith(item.path));
-            return (
-              <li key={item.name}>
-                <Link
-                  href={item.path}
-                  className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center ${isActive
-                      ? "text-white"
-                      : "text-neutral-400 hover:text-white hover:bg-white/5"
-                    }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute inset-0 bg-white/10 rounded-full border border-white/10 shadow-sm"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                  <span className="relative z-10">{item.name}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {/* Right Side: Links & CTA */}
+        <div className="flex items-center gap-4">
+          {/* Links */}
+          <ul className="hidden md:flex items-center gap-1 bg-black/40 p-1 rounded-full border border-white/5 shadow-inner">
+            {links.map((item) => {
+              const isActive = pathname === item.path || (item.path !== '/' && pathname?.startsWith(item.path));
+              return (
+                <li key={item.name}>
+                  <Link
+                    href={item.path}
+                    className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center ${isActive
+                        ? "text-white"
+                        : "text-neutral-400 hover:text-white hover:bg-white/5"
+                      }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute inset-0 bg-white/10 rounded-full border border-white/10 shadow-sm"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
 
-        {/* CTA Button */}
-        <Link
-          href="/analyze"
-          className="relative z-10 hidden md:flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-full group/btn transition-transform duration-300 hover:scale-105 active:scale-95"
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-500 to-emerald-400 opacity-80 group-hover/btn:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]" />
-          <div className="absolute inset-[1px] bg-neutral-950 rounded-full transition-colors duration-300 group-hover/btn:bg-neutral-900/80" />
+          {/* CTA Button */}
+          <Link
+            href="/analyze"
+            className="relative z-10 hidden md:flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-full group/btn transition-transform duration-300 hover:scale-105 active:scale-95"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-500 to-emerald-400 opacity-80 group-hover/btn:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[gradient_3s_linear_infinite]" />
+            <div className="absolute inset-[1px] bg-neutral-950 rounded-full transition-colors duration-300 group-hover/btn:bg-neutral-900/80" />
 
-          <span className="relative z-10 flex items-center gap-2 text-sm font-semibold text-white tracking-wide">
-            Start Analysis
-          </span>
-        </Link>
+            <span className="relative z-10 flex items-center gap-2 text-sm font-semibold text-white tracking-wide">
+              Start Analysis
+            </span>
+          </Link>
 
-        {/* Mobile Menu Button (Placeholder) */}
-        <button className="md:hidden relative z-10 p-2 text-neutral-400 hover:text-white transition-colors">
-          <div className="w-5 h-0.5 bg-current mb-1.5 rounded-full" />
-          <div className="w-4 h-0.5 bg-current rounded-full" />
-        </button>
+          {/* Mobile Menu Button (Placeholder) */}
+          <button className="md:hidden relative z-10 p-2 text-neutral-400 hover:text-white transition-colors">
+            <div className="w-5 h-0.5 bg-current mb-1.5 rounded-full" />
+            <div className="w-4 h-0.5 bg-current rounded-full" />
+          </button>
+        </div>
       </div>
     </motion.nav>
   );
