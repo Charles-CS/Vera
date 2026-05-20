@@ -20,7 +20,7 @@ const Navbar = () => {
       initial={{ y: -100, x: "-50%", opacity: 0 }}
       animate={{ y: 0, x: "-50%", opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute left-1/2 z-50 w-full max-w-5xl top-[26px] px-6"
+      className="absolute left-1/2 z-50 w-[90%] top-[26px]"
     >
       <div className="relative flex items-center justify-between px-6 py-3 rounded-full bg-neutral-950/70 backdrop-blur-2xl border border-white/10 shadow-2xl overflow-hidden group/nav">
 
