@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-12 pb-12 lg:pt-20 lg:pb-16 min-h-[70vh]">
+      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-8 pb-8 lg:pt-12 lg:pb-10 min-h-[70vh]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative z-10 text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.1] text-center mb-6"
+          className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] text-center mb-4"
         >
           Know your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic font-medium">plants.</span>
         </motion.h1>
@@ -67,7 +67,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative z-10 text-base md:text-xl text-neutral-400 max-w-2xl text-center font-light leading-relaxed mb-10"
+          className="relative z-10 text-sm md:text-base text-neutral-400 max-w-2xl text-center font-light leading-relaxed mb-8"
         >
           Capture any botanical specimen for immediate, high-precision analysis. Unlock instant species identification, comprehensive cultivation protocols, and critical toxicity data.
         </motion.p>
@@ -76,7 +76,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mb-10 w-full justify-center"
+          className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mb-8 w-full justify-center"
         >
           <button 
             onClick={() => fileInputRef.current?.click()}
