@@ -25,7 +25,7 @@ export default function RootLayout({
           <Navbar />
           
           {/* Main Content Area */}
-          <main className="relative z-10 pt-32 px-6 pb-12 max-w-7xl mx-auto min-h-screen">
+          <main className="relative z-10 px-6 pb-12 max-w-7xl mx-auto min-h-screen">
             {children}
           </main>
         </ImageProvider>
