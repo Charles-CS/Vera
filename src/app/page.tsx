@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative z-10 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] text-center mb-4"
+          className="relative z-10 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] text-center mb-4 -mt-[6px]"
         >
           Know your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic font-medium">plants.</span>
         </motion.h1>
