@@ -130,14 +130,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="relative z-10 text-neutral-500/80 text-[11px] font-medium mt-10 tracking-[0.2em] uppercase"
-        >
-          — 100% free, no signup, no limits —
-        </motion.p>
+
       </section>
 
       <InfoSections />
