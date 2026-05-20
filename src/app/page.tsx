@@ -133,9 +133,9 @@ export default function Home() {
 
       </section>
 
-      <InfoSections />
-
       <Features />
+
+      <InfoSections />
 
       <HowItWorks />
 
