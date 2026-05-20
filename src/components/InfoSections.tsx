@@ -72,53 +72,6 @@ export default function InfoSections() {
       </section>
 
 
-      {/* Three steps Section - Staggered Offset Layout */}
-      <section className="w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col items-center">
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 pb-2">
-            Three <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic px-2 inline-block">steps</span>
-          </h2>
-        </div>
-        
-        <div className="flex flex-col md:flex-row items-start justify-between gap-12 lg:gap-20 w-full relative">
-          
-          <div className="flex flex-col items-start relative z-10 group w-full md:w-1/3 mt-0 md:mt-0">
-            <div className="text-[8rem] leading-none font-bold text-neutral-900/60 absolute -top-12 -left-8 z-0 pointer-events-none group-hover:text-emerald-950/60 transition-colors duration-700 font-serif italic">
-              1
-            </div>
-            <div className="relative z-10 pt-12">
-              <h3 className="text-3xl font-semibold text-white mb-4 tracking-wide">Snap</h3>
-              <p className="text-neutral-400 font-light leading-relaxed text-lg">
-                Take a photo or upload one from your gallery.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-start relative z-10 group w-full md:w-1/3 mt-12 md:mt-24">
-            <div className="text-[8rem] leading-none font-bold text-neutral-900/60 absolute -top-12 -left-8 z-0 pointer-events-none group-hover:text-cyan-950/60 transition-colors duration-700 font-serif italic">
-              2
-            </div>
-            <div className="relative z-10 pt-12">
-              <h3 className="text-3xl font-semibold text-white mb-4 tracking-wide">Identify</h3>
-              <p className="text-neutral-400 font-light leading-relaxed text-lg">
-                AI analyzes the image and matches it to known species.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-start relative z-10 group w-full md:w-1/3 mt-24 md:mt-48">
-            <div className="text-[8rem] leading-none font-bold text-neutral-900/60 absolute -top-12 -left-8 z-0 pointer-events-none group-hover:text-amber-950/60 transition-colors duration-700 font-serif italic">
-              3
-            </div>
-            <div className="relative z-10 pt-12">
-              <h3 className="text-3xl font-semibold text-white mb-4 tracking-wide">Learn</h3>
-              <p className="text-neutral-400 font-light leading-relaxed text-lg">
-                Get the name, care guide, toxicity info, and fun facts.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </div>
   );
