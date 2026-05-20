@@ -1,3 +1,4 @@
+/** Vera - Landing Page */
 "use client";
 
 import Features from "@/components/Features";
