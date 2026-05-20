@@ -100,7 +100,7 @@ export default function Home() {
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
-          className={`relative z-10 w-full max-w-3xl border-2 border-dashed rounded-[2rem] p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
+          className={`relative z-10 w-full max-w-xl border-2 border-dashed rounded-[2rem] p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
             isDragging 
               ? "border-emerald-400 bg-emerald-500/10 scale-[1.02] shadow-[0_0_40px_rgba(16,185,129,0.2)]" 
               : "border-emerald-500/30 bg-neutral-950/40 hover:bg-emerald-500/5 hover:border-emerald-500/50 backdrop-blur-xl"

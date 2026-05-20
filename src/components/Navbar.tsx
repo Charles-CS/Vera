@@ -20,7 +20,7 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl"
+      className="w-full z-50 bg-neutral-900/70 backdrop-blur-xl"
     >
       <div className="w-[90%] mx-auto flex items-center justify-between py-4">
 
