@@ -5,9 +5,6 @@ import {
   Search, 
   Heart, 
   ShieldAlert, 
-  Sprout, 
-  Flower2, 
-  Leaf, 
 } from "lucide-react";
 
 export default function InfoSections() {
@@ -74,58 +71,6 @@ export default function InfoSections() {
         </div>
       </section>
 
-      {/* Browse our guides Section - List Layout with Borders */}
-      <section className="w-full max-w-5xl mx-auto px-6 lg:px-8 flex flex-col items-center">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 pb-2">
-            Browse our <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic px-2 inline-block">guides</span>
-          </h2>
-          <p className="text-neutral-500 text-lg font-light tracking-wide">
-            Curated identification guides for popular categories.
-          </p>
-        </div>
-        
-        <div className="flex flex-col w-full">
-          {/* List Item 1 */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-10 group border-b border-white/5 hover:border-emerald-500/30 transition-all duration-300">
-            <div className="flex items-center gap-8 md:w-1/2 mb-4 md:mb-0">
-              <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-all duration-500 shrink-0">
-                <Sprout className="w-8 h-8 text-emerald-400/80 group-hover:text-emerald-400 transition-colors" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white italic group-hover:text-emerald-300 transition-colors">Mushroom Guide</h3>
-            </div>
-            <p className="text-neutral-400 font-light md:w-1/2 md:text-right text-lg leading-relaxed">
-              25+ species with safety ratings and lookalike warnings.
-            </p>
-          </div>
-
-          {/* List Item 2 */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-10 group border-b border-white/5 hover:border-pink-500/30 transition-all duration-300">
-            <div className="flex items-center gap-8 md:w-1/2 mb-4 md:mb-0">
-              <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center group-hover:border-pink-500/50 group-hover:bg-pink-500/10 transition-all duration-500 shrink-0">
-                <Flower2 className="w-8 h-8 text-pink-400/80 group-hover:text-pink-400 transition-colors" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white italic group-hover:text-pink-300 transition-colors">Pink Flowers</h3>
-            </div>
-            <p className="text-neutral-400 font-light md:w-1/2 md:text-right text-lg leading-relaxed">
-              30+ common pink flowers with photos and care tips.
-            </p>
-          </div>
-
-          {/* List Item 3 */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-10 group border-b border-white/5 hover:border-cyan-500/30 transition-all duration-300">
-            <div className="flex items-center gap-8 md:w-1/2 mb-4 md:mb-0">
-              <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-white/10 flex items-center justify-center group-hover:border-cyan-500/50 group-hover:bg-cyan-500/10 transition-all duration-500 shrink-0">
-                <Leaf className="w-8 h-8 text-cyan-400/80 group-hover:text-cyan-400 transition-colors" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white italic group-hover:text-cyan-300 transition-colors">White Flowers</h3>
-            </div>
-            <p className="text-neutral-400 font-light md:w-1/2 md:text-right text-lg leading-relaxed">
-              30+ common white flowers identified and explained.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Three steps Section - Staggered Offset Layout */}
       <section className="w-full max-w-6xl mx-auto px-6 lg:px-8 flex flex-col items-center">
