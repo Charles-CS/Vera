@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-4 pb-12 lg:pt-8 lg:pb-16 min-h-[70vh]">
+      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-12 pb-12 lg:pt-20 lg:pb-16 min-h-[70vh]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
