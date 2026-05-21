@@ -16,7 +16,6 @@ export default function Footer() {
                 <div className="text-zinc-400 text-sm">AI-powered plant & mushroom identification</div>
               </div>
             </div>
-            <p className="text-zinc-400 text-sm">Scan, identify, and learn how to protect your local ecosystem. Never rely on a single source for edibility — consult experts.</p>
           </div>
 
           <div>
