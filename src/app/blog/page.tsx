@@ -311,7 +311,8 @@ const guidesHubs = [
   { title: "Houseplant Care", subtitle: "Indoor Styling & Plant Care Tips", icon: "🪴", color: "from-emerald-500/20 to-cyan-500/20" },
   { title: "Poison Prevention", subtitle: "Toxic Flora & Pet Safety Hub", icon: "⚠️", color: "from-red-500/20 to-orange-500/20" },
   { title: "Foraging & Edibles", subtitle: "Wild Plants & Edible Foraging Guides", icon: "🥗", color: "from-yellow-500/20 to-emerald-500/20" },
-  { title: "Spring Wildflowers", subtitle: "Seasonal Wildflowers & Gardens", icon: "🌸", color: "from-pink-500/20 to-rose-500/20" }
+  { title: "Spring Wildflowers", subtitle: "Seasonal Wildflowers & Gardens", icon: "🌸", color: "from-pink-500/20 to-rose-500/20" },
+  { title: "Seasonal Gardening", subtitle: "Monthly Planting Calendars & Zone Guides", icon: "📅", color: "from-violet-500/20 to-indigo-500/20" }
 ];
 
 export default function BlogPage() {
