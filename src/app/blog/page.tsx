@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Calendar, User, ArrowRight, ShieldAlert, Sparkles, Filter, Bookmark, BookOpen, Leaf, Trees, FlameKindling, Info } from 'lucide-react';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 interface BlogPost {
   id: number;
@@ -533,6 +534,8 @@ export default function BlogPage() {
             ))}
           </div>
         </section>
+
+        <Footer />
       </div>
     </div>
   );

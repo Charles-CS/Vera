@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertTriangle, Info, CheckCircle2, Skull, Search, HelpCircle, ChevronDown, BookOpen, Compass, Eye, Disc, Layers, Trees, Calendar, HelpCircle as HelpIcon } from 'lucide-react';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 interface Mushroom {
   id: number;
@@ -549,6 +550,8 @@ export default function MushroomsPage() {
             </Link>
           </div>
         </section>
+
+        <Footer />
       </div>
     </div>
   );
