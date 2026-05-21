@@ -59,13 +59,13 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
   };
 
   return (
-    <div className={`w-full max-w-5xl mx-auto px-6 py-6 md:px-8 ${hideHeader ? 'pt-4' : 'pt-8 md:pt-10'}`}>
+    <div className={`w-full max-w-5xl mx-auto px-6 py-2 md:px-8 ${hideHeader ? 'pt-2' : 'pt-3 md:pt-4'}`}>
       {!hideHeader && (
-        <div className="mx-auto mb-8 max-w-3xl text-center">
+        <div className="mx-auto mb-5 max-w-3xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-4"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05] mb-3"
           >
             Know your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic font-medium">plants.</span>
           </motion.h2>
@@ -76,7 +76,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
             className="mx-auto max-w-2xl text-sm md:text-base text-neutral-400 leading-relaxed"
           >
             Capture any botanical specimen for immediate analysis. Upload one clear photo and move straight into the scan.
-          </div>
+          </motion.p>
         </div>
       )}
 
@@ -116,7 +116,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
             className="hidden"
           />
 
-          <div className="p-8 md:p-10 flex flex-col items-center justify-center min-h-[360px] text-center cursor-pointer relative z-10">
+          <div className="p-6 md:p-8 flex flex-col items-center justify-center min-h-[280px] text-center cursor-pointer relative z-10">
             <AnimatePresence mode="wait">
               {!previewUrl ? (
                 <motion.div
@@ -128,17 +128,17 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
                   className="flex flex-col items-center pointer-events-none w-full"
                 >
                   {/* Floating Icon Area */}
-                  <div className="relative mb-8 mt-2 flex items-center justify-center">
+                  <div className="relative mb-6 mt-1 flex items-center justify-center">
                     <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-35 transition-opacity duration-500 group-hover:opacity-60" />
                     <div className="relative p-5 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl flex items-center justify-center">
                       <UploadCloud className="w-11 h-11 text-white" strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-light text-white mb-3 tracking-wide">
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-2 tracking-wide">
                     Upload a clear photo
                   </h3>
-                  <p className="text-neutral-400 mb-8 max-w-md leading-relaxed text-sm md:text-base font-light">
+                  <p className="text-neutral-400 mb-6 max-w-md leading-relaxed text-sm md:text-base font-light">
                     Drag and drop your image here, or tap to browse. One photo is enough to begin.
                   </p>
                   
