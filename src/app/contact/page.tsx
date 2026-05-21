@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import {
   ArrowRight,
-  Clock3,
-  Mail,
-  MapPin,
 } from "lucide-react";
 
 type ContactForm = {
@@ -62,51 +59,6 @@ export default function ContactPage() {
             >
               Whether you need help with an identification, want to explore a partnership, or need to flag a safety concern, we keep the same precise, high-signal tone Vera uses everywhere else.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.15 }}
-              className="grid gap-4 sm:grid-cols-2"
-            >
-              <div className="glass-panel glass-shine p-5">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-2xl bg-emerald-500/10 p-3 text-emerald-400">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Email</p>
-                    <Link href="mailto:support@vera.ai" className="mt-2 block text-lg font-semibold text-white hover:text-emerald-300 transition-colors">
-                      support@vera.ai
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel glass-shine p-5">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-2xl bg-emerald-500/10 p-3 text-emerald-400">
-                    <Clock3 className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Response time</p>
-                    <p className="mt-2 text-lg font-semibold text-white">Usually within 1 business day</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-panel glass-shine p-5 sm:col-span-2">
-                <div className="flex items-start gap-3">
-                  <div className="rounded-2xl bg-emerald-500/10 p-3 text-emerald-400">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Best use cases</p>
-                    <p className="mt-2 text-lg font-semibold text-white">Support, partnerships, and product feedback for Vera Intelligence.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
           <motion.form
@@ -117,11 +69,7 @@ export default function ContactPage() {
             className="glass-panel glass-shine p-6 md:p-8"
           >
             <div className="mb-6">
-              <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Send a message</p>
               <h2 className="mt-2 text-2xl font-semibold text-white">Start a conversation</h2>
-              <p className="mt-2 text-sm leading-6 text-neutral-400">
-                This form opens your email client with the details prefilled so you can send a direct message to the Vera team.
-              </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -176,12 +124,9 @@ export default function ContactPage() {
             </label>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-neutral-500">
-                We only use this to respond to your message.
-              </p>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-neutral-950 transition-all duration-300 hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-neutral-950 transition-all duration-300 hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98] sm:w-full"
               >
                 Send message
                 <ArrowRight className="h-4 w-4" />
