@@ -4,6 +4,7 @@
 import Features from "@/components/Features";
 import InfoSections from "@/components/InfoSections";
 import HowItWorks from "@/components/HowItWorks";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Leaf, Camera, Upload, Sparkles } from "lucide-react";
@@ -137,6 +138,8 @@ export default function Home() {
       <InfoSections />
 
       <HowItWorks />
+
+      <FAQ />
 
       <Footer />
     </div>
