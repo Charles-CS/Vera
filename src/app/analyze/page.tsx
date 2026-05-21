@@ -50,13 +50,13 @@ export default function AnalyzePage() {
   };
 
   return (
-    <div className="h-[calc(100vh-6rem)] overflow-hidden flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-12%] left-[-10%] w-[48%] h-[48%] rounded-full bg-emerald-500/10 blur-[140px]" />
         <div className="absolute bottom-[8%] right-[-12%] w-[42%] h-[52%] rounded-full bg-cyan-500/10 blur-[140px]" />
       </div>
 
-      <div className="relative z-10 w-full flex-1 overflow-hidden flex items-center justify-center px-0 py-0">
+      <div className="relative z-10 w-full flex-1 flex items-start justify-center px-0 py-0 overflow-visible">
       <AnimatePresence mode="wait">
         {/* IDLE STATE */}
         {appState === "IDLE" && (
@@ -66,7 +66,7 @@ export default function AnalyzePage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="w-full overflow-hidden"
+            className="w-full"
           >
             <DashboardView onAnalyze={handleAnalyze} />
           </motion.div>
@@ -80,7 +80,7 @@ export default function AnalyzePage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.5 }}
-            className="flex-1 flex flex-col items-center justify-center w-full px-4 overflow-hidden"
+            className="flex-1 flex flex-col items-center justify-center w-full px-4"
           >
             <ScanningState imageSrc={imageUrl} />
           </motion.div>
@@ -93,7 +93,7 @@ export default function AnalyzePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="flex-1 w-full flex flex-col items-center overflow-hidden"
+            className="flex-1 w-full flex flex-col items-center"
           >
             {/* The ResultsOverview component expects an image url */}
             <ResultsOverview 

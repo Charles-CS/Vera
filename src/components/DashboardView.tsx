@@ -9,10 +9,13 @@ interface DashboardViewProps {
   hideHeader?: boolean;
 }
 
+type ImageOrientation = "landscape" | "portrait" | "square";
+
 export default function DashboardView({ onAnalyze, hideHeader = false }: DashboardViewProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [imageOrientation, setImageOrientation] = useState<ImageOrientation>("landscape");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -36,6 +39,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
   const handleFileChange = (file: File) => {
     if (file && file.type.startsWith("image/")) {
       setSelectedFile(file);
+      setImageOrientation("landscape");
       const url = URL.createObjectURL(file);
       setPreviewUrl(url);
     }
@@ -53,9 +57,26 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
       URL.revokeObjectURL(previewUrl);
     }
     setPreviewUrl(null);
+    setImageOrientation("landscape");
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
+  };
+
+  const handlePreviewLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = event.currentTarget;
+
+    if (naturalWidth > naturalHeight) {
+      setImageOrientation("landscape");
+      return;
+    }
+
+    if (naturalHeight > naturalWidth) {
+      setImageOrientation("portrait");
+      return;
+    }
+
+    setImageOrientation("square");
   };
 
   return (
@@ -163,13 +184,22 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-full max-w-2xl flex flex-col items-center cursor-default z-20"
+                  className={`w-full flex flex-col items-center cursor-default z-20 ${
+                    imageOrientation === "landscape" ? "max-w-4xl" : "max-w-2xl"
+                  }`}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-neutral-900">
+                  <div className={`relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-neutral-900 ${
+                    imageOrientation === "landscape"
+                      ? "aspect-video"
+                      : imageOrientation === "portrait"
+                        ? "aspect-[4/5] max-h-[72vh]"
+                        : "aspect-square max-h-[68vh]"
+                  }`}>
                     <img
                       src={previewUrl}
                       alt="Preview"
+                      onLoad={handlePreviewLoad}
                       className="w-full h-full object-contain"
                     />
                     
