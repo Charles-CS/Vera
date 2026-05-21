@@ -328,7 +328,7 @@ export default function BlogPage() {
   });
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-6 relative overflow-hidden bg-neutral-950 text-neutral-200">
+    <div className="min-h-screen pt-24 pb-20 px-6 relative overflow-hidden text-neutral-200">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/5 blur-[120px]" />
@@ -343,10 +343,7 @@ export default function BlogPage() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Sparkles size={12} />
-            <span>From the greenhouse 🌿</span>
-          </div>
+
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
             Vera <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Greenhouse</span>
           </h1>

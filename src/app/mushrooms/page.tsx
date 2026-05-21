@@ -293,7 +293,7 @@ export default function MushroomsPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-6 relative overflow-hidden bg-neutral-950 text-neutral-200">
+    <div className="min-h-screen pt-24 pb-20 px-6 relative overflow-hidden text-neutral-200">
       {/* Dynamic Background */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/5 blur-[120px]" />
