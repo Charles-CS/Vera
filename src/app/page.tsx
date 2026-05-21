@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-8 pb-8 lg:pt-12 lg:pb-10 min-h-[70vh]">
+      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-10 pb-8 lg:pt-14 lg:pb-10 min-h-[70vh]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -130,8 +130,6 @@ export default function Home() {
             or click to browse - JPG, PNG, WEBP up to 10MB
           </p>
         </motion.div>
-
-
       </section>
 
       <Features />
