@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full gap-8">
       {/* HERO SECTION */}
-      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-10 pb-8 lg:pt-14 lg:pb-10 min-h-[70vh]">
+      <section className="w-full flex flex-col items-center justify-center max-w-5xl mx-auto px-6 lg:px-8 relative pt-14 pb-8 lg:pt-[72px] lg:pb-10 min-h-[70vh]">
         {/* Background glow effects for Hero */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
@@ -100,7 +100,7 @@ export default function Home() {
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
-          className={`relative z-10 w-full max-w-xl border-2 border-dashed rounded-[2rem] p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
+          className={`relative z-10 w-full max-w-xl border-2 border-dashed rounded-[2rem] py-8 px-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
             isDragging 
               ? "border-emerald-400 bg-emerald-500/10 scale-[1.02] shadow-[0_0_40px_rgba(16,185,129,0.2)]" 
               : "border-emerald-500/30 bg-neutral-950/40 hover:bg-emerald-500/5 hover:border-emerald-500/50 backdrop-blur-xl"
@@ -114,7 +114,7 @@ export default function Home() {
             className="hidden" 
           />
           
-          <div className="relative mb-6 group">
+          <div className="relative mb-4 group">
             <div className="p-4 bg-emerald-500/10 rounded-2xl group-hover:scale-110 transition-transform duration-300">
               <Camera className="w-10 h-10 text-emerald-400" strokeWidth={1.5} />
             </div>
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h3 className="text-xl md:text-2xl font-light text-emerald-400 mb-3 italic tracking-wide">
+          <h3 className="text-xl md:text-2xl font-light text-emerald-400 mb-2 italic tracking-wide">
             Drop a photo here
           </h3>
           <p className="text-neutral-500 text-sm tracking-wide">
