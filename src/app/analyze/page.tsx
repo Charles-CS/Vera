@@ -56,7 +56,7 @@ export default function AnalyzePage() {
         <div className="absolute bottom-[8%] right-[-12%] w-[42%] h-[52%] rounded-full bg-cyan-500/10 blur-[140px]" />
       </div>
 
-      <div className="relative z-10 w-full flex-1 flex items-start justify-center px-0 py-0 overflow-visible">
+      <div className="relative z-10 w-full flex-1 flex items-center justify-center px-0 py-0 overflow-visible">
       <AnimatePresence mode="wait">
         {/* IDLE STATE */}
         {appState === "IDLE" && (
