@@ -4,8 +4,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full pt-12 pb-10 bg-neutral-900/40 border-t border-white/5 mt-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+      <div className="max-w-7xl mx-auto px-8 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 items-start">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10">
@@ -44,7 +44,7 @@ export default function Footer() {
               <li><Link href="/terms" className="hover:text-white">Terms of Service</Link></li>
             </ul>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <Link href="#" className="text-zinc-400 hover:text-white"><Twitter /></Link>
               <Link href="#" className="text-zinc-400 hover:text-white"><Github /></Link>
               <Link href="#" className="text-zinc-400 hover:text-white"><Linkedin /></Link>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 text-sm text-zinc-500">
           <p>© {new Date().getFullYear()} Vera Intelligence. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-white">Privacy</Link>
