@@ -10,7 +10,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const links = [
-    { name: 'Home', path: '/' },
+    { name: 'IDENTIFY', path: '/' },
     { name: 'Mushrooms', path: '/mushrooms' },
     { name: 'Blog', path: '/blog' }
   ];
