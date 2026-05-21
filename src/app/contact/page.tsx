@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import {
   ArrowRight,
+  ChevronDown,
 } from "lucide-react";
 
 type ContactForm = {
@@ -99,16 +100,19 @@ export default function ContactPage() {
 
             <label className="mt-4 block space-y-2">
               <span className="text-sm font-medium text-neutral-300">Topic</span>
-              <select
-                value={form.topic}
-                onChange={(event) => setForm((current) => ({ ...current, topic: event.target.value }))}
-                className="w-full rounded-2xl border border-white/10 bg-neutral-950/70 px-4 py-3 text-white outline-none transition-colors focus:border-emerald-400/60"
-              >
-                <option>General support</option>
-                <option>Partnerships</option>
-                <option>Urgent help</option>
-                <option>Product feedback</option>
-              </select>
+              <div className="relative">
+                <select
+                  value={form.topic}
+                  onChange={(event) => setForm((current) => ({ ...current, topic: event.target.value }))}
+                  className="w-full appearance-none rounded-2xl border border-white/10 bg-neutral-950/70 px-4 py-3 pr-12 text-white outline-none transition-colors focus:border-emerald-400/60"
+                >
+                  <option>General support</option>
+                  <option>Partnerships</option>
+                  <option>Urgent help</option>
+                  <option>Product feedback</option>
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/70" />
+              </div>
             </label>
 
             <label className="mt-4 block space-y-2">
