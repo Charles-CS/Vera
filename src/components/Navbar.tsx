@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Leaf } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -25,14 +25,7 @@ const Navbar = () => {
       <div className="w-[90%] mx-auto flex items-center justify-between py-4">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-white/10 overflow-hidden">
-            <Leaf size={18} className="text-emerald-400 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white">
-            Vera<span className="text-emerald-400">.</span>
-          </span>
-        </Link>
+        <Logo />
 
         {/* Right Side: Links & CTA */}
         <div className="flex items-center gap-8">

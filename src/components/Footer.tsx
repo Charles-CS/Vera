@@ -1,4 +1,5 @@
-import { Leaf, Twitter, Github, Linkedin, Mail } from "lucide-react";
+import { Twitter, Github, Linkedin, Mail } from "lucide-react";
+import Logo from './Logo';
 import Link from "next/link";
 
 export default function Footer() {
@@ -7,15 +8,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-8 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 items-start">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center border border-white/10">
-                <Leaf className="text-emerald-400" />
-              </div>
-              <div>
-                <div className="text-white font-semibold text-lg">Vera</div>
-                <div className="text-zinc-400 text-sm">AI-powered plant & mushroom identification</div>
-              </div>
+            <div className="flex items-center gap-3 mb-2">
+              <Logo />
             </div>
+            <div className="text-zinc-400 text-sm mt-1">AI-powered plant & mushroom identification</div>
           </div>
 
           <div>
