@@ -50,7 +50,13 @@ export default function AnalyzePage() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 flex flex-col relative overflow-hidden">
+    <div className="min-h-[calc(100vh-6rem)] flex flex-col relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-[-12%] left-[-10%] w-[48%] h-[48%] rounded-full bg-emerald-500/10 blur-[140px]" />
+        <div className="absolute bottom-[8%] right-[-12%] w-[42%] h-[52%] rounded-full bg-cyan-500/10 blur-[140px]" />
+      </div>
+
+      <div className="relative z-10 w-full flex-1 flex items-center justify-center px-0 py-0">
       <AnimatePresence mode="wait">
         {/* IDLE STATE */}
         {appState === "IDLE" && (
@@ -60,7 +66,7 @@ export default function AnalyzePage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="flex-1 w-full"
+            className="w-full"
           >
             <DashboardView onAnalyze={handleAnalyze} />
           </motion.div>
@@ -116,6 +122,7 @@ export default function AnalyzePage() {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 }

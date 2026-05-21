@@ -59,29 +59,29 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
   };
 
   return (
-    <div className={`w-full max-w-4xl mx-auto p-6 ${hideHeader ? 'pt-6' : 'pt-12 md:pt-24'}`}>
+    <div className={`w-full max-w-5xl mx-auto px-6 py-6 md:px-8 ${hideHeader ? 'pt-4' : 'pt-8 md:pt-10'}`}>
       {!hideHeader && (
-        <div className="text-center mb-10">
+        <div className="mx-auto mb-8 max-w-3xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500 mb-4"
+            className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-4"
           >
-            Analyze Your Plant
+            Know your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 italic font-medium">plants.</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-neutral-400 text-lg"
+            className="mx-auto max-w-2xl text-sm md:text-base text-neutral-400 leading-relaxed"
           >
-            Upload an image to identify species, detect diseases, and assess health.
-          </motion.p>
+            Capture any botanical specimen for immediate analysis. Upload one clear photo and move straight into the scan.
+          </div>
         </div>
       )}
 
       <motion.div
-        className="relative w-full group"
+        className="relative w-full max-w-3xl mx-auto group"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -91,14 +91,14 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
         onClick={() => !selectedFile && fileInputRef.current?.click()}
       >
         {/* Animated gradient border effect */}
-        <div className={`absolute inset-0 rounded-[2.5rem] bg-gradient-to-b transition-all duration-500 ${
+        <div className={`absolute inset-0 rounded-[2rem] bg-gradient-to-b transition-all duration-500 ${
           isDragging 
             ? "from-emerald-400 via-cyan-500 to-emerald-400 opacity-100 blur-md" 
             : "from-white/20 to-white/5 opacity-50 group-hover:opacity-100 group-hover:from-emerald-500/50 group-hover:to-cyan-500/50 blur-sm"
         }`} />
         
         {/* Main Card */}
-        <div className={`relative w-full rounded-[2.5rem] overflow-hidden transition-all duration-500 backdrop-blur-2xl ${
+        <div className={`relative w-full rounded-[2rem] overflow-hidden transition-all duration-500 backdrop-blur-2xl border border-white/10 ${
           isDragging
             ? "bg-black/60 shadow-[0_0_80px_rgba(16,185,129,0.3)]"
             : "bg-black/40 hover:bg-black/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]"
@@ -116,7 +116,7 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
             className="hidden"
           />
 
-          <div className="p-8 md:p-12 flex flex-col items-center justify-center min-h-[400px] text-center cursor-pointer relative z-10">
+          <div className="p-8 md:p-10 flex flex-col items-center justify-center min-h-[360px] text-center cursor-pointer relative z-10">
             <AnimatePresence mode="wait">
               {!previewUrl ? (
                 <motion.div
@@ -128,69 +128,30 @@ export default function DashboardView({ onAnalyze, hideHeader = false }: Dashboa
                   className="flex flex-col items-center pointer-events-none w-full"
                 >
                   {/* Floating Icon Area */}
-                  <div className="relative mb-10 mt-4">
-                    {/* Glowing background behind icon */}
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-40 group-hover:opacity-70 transition-opacity duration-500"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.4, 0.6, 0.4]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    />
-                    
-                    <motion.div
-                      animate={{
-                        y: [0, -12, 0],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      className="relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl flex items-center justify-center"
-                    >
-                      {/* Decorative micro-icons */}
-                      <motion.div 
-                        className="absolute -top-3 -right-3 p-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 shadow-lg"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      >
-                         <Sparkles className="w-4 h-4 text-emerald-400" />
-                      </motion.div>
-                      <motion.div 
-                        className="absolute -bottom-3 -left-3 p-2 bg-black/50 backdrop-blur-md rounded-full border border-white/10 shadow-lg"
-                        animate={{ rotate: -360 }}
-                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                      >
-                         <Leaf className="w-4 h-4 text-cyan-400" />
-                      </motion.div>
-
-                      <UploadCloud className="w-12 h-12 text-white" strokeWidth={1.5} />
-                    </motion.div>
+                  <div className="relative mb-8 mt-2 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-cyan-500 rounded-full blur-2xl opacity-35 transition-opacity duration-500 group-hover:opacity-60" />
+                    <div className="relative p-5 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl flex items-center justify-center">
+                      <UploadCloud className="w-11 h-11 text-white" strokeWidth={1.5} />
+                    </div>
                   </div>
 
-                  <h3 className="text-3xl font-light text-white mb-4 tracking-wide">
-                    Feed the <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Engine</span>
+                  <h3 className="text-2xl md:text-3xl font-light text-white mb-3 tracking-wide">
+                    Upload a clear photo
                   </h3>
-                  <p className="text-neutral-400 mb-10 max-w-sm leading-relaxed text-sm md:text-base font-light">
-                    Drag & drop a botanical specimen here, or browse your files. High resolution yields optimal analysis.
+                  <p className="text-neutral-400 mb-8 max-w-md leading-relaxed text-sm md:text-base font-light">
+                    Drag and drop your image here, or tap to browse. One photo is enough to begin.
                   </p>
                   
                   <button
                     type="button"
-                    className="pointer-events-auto relative group/btn overflow-hidden rounded-full p-[1px] transition-transform duration-300 hover:scale-105 active:scale-95"
+                    className="pointer-events-auto relative group/btn w-full max-w-md overflow-hidden rounded-full p-[1px] transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
                     onClick={(e) => {
                       e.stopPropagation();
                       fileInputRef.current?.click();
                     }}
                   >
-                    <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-full opacity-70 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                    <div className="relative px-8 py-3.5 bg-black/80 backdrop-blur-md rounded-full transition-all duration-300 group-hover/btn:bg-black/50 flex items-center gap-2">
+                    <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-full opacity-90 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex items-center justify-center gap-2 rounded-full bg-black/80 px-8 py-3.5 backdrop-blur-md transition-all duration-300 group-hover/btn:bg-black/60">
                       <span className="text-white font-medium tracking-wide text-sm uppercase">Select Image</span>
                     </div>
                   </button>
