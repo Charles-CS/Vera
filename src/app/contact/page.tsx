@@ -9,9 +9,6 @@ import {
   Clock3,
   Mail,
   MapPin,
-  MessageCircle,
-  PhoneCall,
-  Sparkles,
 } from "lucide-react";
 
 type ContactForm = {
@@ -20,27 +17,6 @@ type ContactForm = {
   topic: string;
   message: string;
 };
-
-const contactTopics = [
-  {
-    title: "General support",
-    description: "Questions about identification, scans, or how Vera works.",
-    icon: MessageCircle,
-    href: "mailto:support@vera.ai",
-  },
-  {
-    title: "Partnerships",
-    description: "Collaborations, integrations, and product opportunities.",
-    icon: Sparkles,
-    href: "mailto:partners@vera.ai",
-  },
-  {
-    title: "Urgent help",
-    description: "Report an inaccurate result or a safety-related concern.",
-    icon: PhoneCall,
-    href: "mailto:support@vera.ai?subject=Urgent%20support%20request",
-  },
-];
 
 export default function ContactPage() {
   const [form, setForm] = useState<ContactForm>({
@@ -69,16 +45,6 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55 }}
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-300"
-            >
-              <Sparkles className="h-4 w-4" />
-              Contact Vera
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -223,35 +189,6 @@ export default function ContactPage() {
             </div>
           </motion.form>
         </div>
-      </section>
-
-      <section className="max-w-6xl mx-auto w-full grid gap-4 md:grid-cols-3">
-        {contactTopics.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.08 * index }}
-              className="glass-panel glass-panel-interactive glass-shine p-6"
-            >
-              <div className="flex items-start gap-4">
-                <div className="rounded-2xl bg-emerald-500/10 p-3 text-emerald-400">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-400">{item.description}</p>
-                  <Link href={item.href} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors">
-                    Open email
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
       </section>
 
       <Footer />
