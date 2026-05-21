@@ -40,8 +40,8 @@ export default function ContactPage() {
         <div className="absolute -top-16 right-[-60px] h-64 w-64 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 left-[-80px] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
-          <div className="space-y-6">
+        <div className="relative z-10 max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+          <div className="space-y-6 lg:flex lg:h-full lg:flex-col lg:justify-center">
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
