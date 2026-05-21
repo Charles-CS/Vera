@@ -400,6 +400,11 @@ export default function BlogPage() {
 
         {/* Filters and Search */}
         <section className="mb-12 border-t border-white/10 pt-16">
+          <div className="flex items-center gap-2 mb-8">
+            <BookOpen className="text-emerald-400" size={20} />
+            <h2 className="text-2xl font-bold text-white">All Articles</h2>
+          </div>
+
           <div className="flex flex-col lg:flex-row gap-6 justify-between items-center mb-10">
             {/* Category Filter */}
             <div className="flex flex-wrap gap-2 w-full lg:w-auto bg-neutral-900/40 p-1 rounded-xl border border-white/5 backdrop-blur-sm">
