@@ -210,6 +210,17 @@ const mushroomsData: Mushroom[] = [
     badgeType: "inedible",
     description: "Tiny cup-shaped fungus (0.5–1.5 cm tall) shaped exactly like a miniature bird's nest filled with \"eggs\" (spore packets called peridioles). Grooved/striped inner cup walls. Found on wood chips, dead plant debris, and rotting wood in moist conditions. Fascinating to discover, completely harmless, but not edible."
   }
+  ,
+  {
+    id: 22,
+    name: "Saffron Milkcap",
+    scientific: "Lactarius deliciosus",
+    category: "edible",
+    safety: "Edible — commonly eaten after proper preparation",
+    badgeType: "edible",
+    description: "Orange to reddish-orange cap (4–12 cm) often with concentric rings; when cut it exudes an orange carrot-colored latex. Flesh is firm and may bruise greenish. Grows in pine forests in autumn in mycorrhizal association with pines. Popular in many cuisines when cleaned and cooked; some people prefer to remove larvae or core before cooking.",
+    lookalike: "Other orange Lactarius species and some Cortinarius — confirm orange latex and pine association; Cortinarius species have rusty-brown spore prints."
+  }
 ];
 
 const featuresData = [
