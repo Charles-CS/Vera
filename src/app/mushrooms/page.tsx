@@ -331,7 +331,7 @@ export default function MushroomsPage() {
         >
           <AlertTriangle className="text-red-500 shrink-0 mt-1" size={28} />
           <div>
-            <h3 className="text-red-500 font-bold text-lg mb-2">⚠️ IMPORTANT SAFETY WARNING</h3>
+            <h3 className="text-red-500 font-bold text-lg mb-2">IMPORTANT SAFETY WARNING</h3>
             <p className="text-red-200/80 leading-relaxed">
               Never eat any wild mushroom based on online identification alone. Many deadly mushrooms closely resemble edible ones. Always consult a local mycologist or mushroom expert before consuming any wild-foraged mushroom. <strong>When in doubt, throw it out.</strong>
             </p>
