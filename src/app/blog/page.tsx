@@ -282,6 +282,14 @@ const blogPosts: BlogPost[] = [
     category: "trees",
     date: "May 02, 2026",
     readTime: "7 min read"
+  },
+  {
+    id: 33,
+    title: "Identifying Conifers: A Guide to Pine, Spruce, and Fir Trees",
+    excerpt: "Learn to distinguish between common needle-bearing trees by examining their cones, needle groupings, and bark textures.",
+    category: "trees",
+    date: "May 10, 2026",
+    readTime: "6 min read"
   }
 ];
 
