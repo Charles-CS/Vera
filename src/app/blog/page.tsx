@@ -51,7 +51,8 @@ const blogPosts: BlogPost[] = [
     excerpt: "A guide outlining hazardous houseplants, including the lethal lily family, symptoms of ingestion, and safe alternative plants to build a pet-friendly indoor jungle.",
     category: "toxic",
     date: "Apr 15, 2026",
-    readTime: "10 min read"
+    readTime: "10 min read",
+    featured: true
   },
   {
     id: 5,
@@ -360,7 +361,7 @@ export default function BlogPage() {
                 <div
                   key={post.id}
                   className={`relative overflow-hidden rounded-3xl border border-white/10 p-8 backdrop-blur-sm flex flex-col justify-between hover:border-white/20 transition-all duration-300 ${
-                    idx === 0 
+                    idx === 0 || idx === 3
                       ? 'lg:col-span-2 bg-gradient-to-br from-emerald-950/20 via-neutral-900/50 to-neutral-900/50' 
                       : 'bg-white/[0.02]'
                   }`}
@@ -376,7 +377,7 @@ export default function BlogPage() {
                       <span>{post.readTime}</span>
                     </div>
                     <h3 className={`font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors ${
-                      idx === 0 ? 'text-2xl md:text-3xl' : 'text-xl'
+                      idx === 0 || idx === 3 ? 'text-2xl md:text-3xl' : 'text-xl'
                     }`}>
                       {post.title}
                     </h3>
