@@ -12,7 +12,8 @@ const Navbar = () => {
   const links = [
     { name: 'IDENTIFY', path: '/' },
     { name: 'Mushrooms', path: '/mushrooms' },
-    { name: 'Blog', path: '/blog' }
+    { name: 'Blog', path: '/blog' },
+    { name: 'CONTACT', path: '/contact' }
   ];
 
   return (
@@ -56,7 +57,6 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* CTA Button */}
           <Link
             href="/analyze"
             className="hidden md:flex items-center justify-center px-5 py-2 rounded-full bg-emerald-500 text-sm font-semibold text-neutral-950 tracking-wide hover:bg-emerald-400 transition-colors duration-300 hover:scale-105 active:scale-95 transform"
