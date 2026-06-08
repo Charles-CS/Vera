@@ -10,11 +10,13 @@ import { motion } from "framer-motion";
 import { Leaf, Camera, Upload, Sparkles } from "lucide-react";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useImageContext } from "@/context/ImageContext";
 
 export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const { setSharedImageUrl } = useImageContext();
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -37,8 +39,9 @@ export default function Home() {
   const handleFile = (file: File) => {
     // Basic file validation
     if (file && file.type.startsWith("image/")) {
-      // Logic to transition to analysis can be added here
-      console.log("File selected:", file.name);
+      const url = URL.createObjectURL(file);
+      setSharedImageUrl(url);
+      router.push("/analyze");
     }
   };
 
@@ -87,7 +90,10 @@ export default function Home() {
             <span>UPLOAD A PHOTO</span>
           </button>
           
-          <button className="w-full sm:w-auto px-8 py-3.5 bg-black/50 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-500/60 text-emerald-400 hover:text-emerald-300 font-bold tracking-wide text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+          <button 
+            onClick={() => router.push("/analyze")}
+            className="w-full sm:w-auto px-8 py-3.5 bg-black/50 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-500/60 text-emerald-400 hover:text-emerald-300 font-bold tracking-wide text-sm rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+          >
             <Camera className="w-4 h-4" />
             <span>USE CAMERA</span>
           </button>
