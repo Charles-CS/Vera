@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
@@ -23,6 +23,22 @@ export default function ContactPage() {
     topic: "General support",
     message: "",
   });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const topicParam = params.get("topic");
+      if (topicParam) {
+        const validTopics = ["General support", "Partnerships", "Urgent help", "Product feedback"];
+        const matched = validTopics.find(
+          (t) => t.toLowerCase() === topicParam.toLowerCase() || t.toLowerCase().includes(topicParam.toLowerCase())
+        );
+        if (matched) {
+          setForm((current) => ({ ...current, topic: matched }));
+        }
+      }
+    }
+  }, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
