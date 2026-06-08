@@ -39,8 +39,8 @@ const Navbar = () => {
                   <Link
                     href={item.path}
                     className={`relative text-sm font-medium tracking-wide uppercase transition-colors duration-300 ${isActive
-                        ? "text-emerald-400"
-                        : "text-neutral-400 hover:text-white"
+                      ? "text-emerald-400"
+                      : "text-neutral-400 hover:text-white"
                       }`}
                   >
                     {item.name}
